@@ -1,4 +1,4 @@
-import { Footer } from "../Footer/Footer";
+import { Modal } from "../Modal/Modal";
 import { NavHeader } from "../NavHeader/NavHeader";
 
 import s from "./Layout.module.css";
@@ -14,7 +14,6 @@ export const Layout: React.FC<Props> = ({ children }) => {
         <NavHeader />
         {children}
       </div>
-      <Footer className={s.footer} />
     </main>
   );
 };

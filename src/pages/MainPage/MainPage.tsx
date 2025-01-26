@@ -1,24 +1,16 @@
-import { ProductsList } from "../../components/ProductsList/ProductsList";
-import { products } from "../../constants";
-import { ProductCategory } from "../../types";
+import { useSelector } from "react-redux";
 
 import s from "./MainPage.module.css";
+import { COMPANIES } from "../../constants";
+import { CompaniesTable } from "../../components/CompaniesTable/CompaniesTable";
+import { useAppSelector } from "../../store/store";
 
 export const MainPage = () => {
+  const data = useAppSelector((store) => store.companiesReducer.companies);
+  console.log(data);
   return (
     <div className={s.root}>
-      <ProductsList
-        title="Наушники"
-        products={products.filter(
-          ({ category }) => category === ProductCategory.Headphones
-        )}
-      />
-      <ProductsList
-        title="Беспроводные наушники"
-        products={products.filter(
-          ({ category }) => category === ProductCategory.WirelessHeadphones
-        )}
-      />
+      <CompaniesTable companies={data} />
     </div>
   );
 };

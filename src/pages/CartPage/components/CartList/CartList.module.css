@@ -1,8 +1,0 @@
-.root {
-  width: 100%;
-  max-width: 633px;
-}
-
-.item:not(:first-child) {
-  margin-top: 30px;
-}

@@ -1,0 +1,11 @@
+.root_visible {
+  width: 100vh;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.9;
+  position: fixed;
+  z-index: 2;
+}
+.root_unvisible {
+  display: none;
+}

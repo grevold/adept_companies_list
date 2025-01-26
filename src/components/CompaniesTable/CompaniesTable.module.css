@@ -1,0 +1,39 @@
+.root {
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 20px;
+  color: rgba(131, 131, 131, 1);
+  padding: 0 var(--padding);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -9px;
+  width: 100%;
+}
+
+.item {
+  width: 100%;
+}
+
+.table_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+}
+
+.button_add_company {
+  width: 30px;
+}
