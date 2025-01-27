@@ -1,4 +1,3 @@
-import { CloseIcon } from "../../icons/CloseIcon";
 import { companiesStoreActions } from "../../store/companiesReducer";
 import { useAppDispatch } from "../../store/store";
 import { Company } from "../../types";
@@ -29,7 +28,6 @@ export function Modal({
   const handleRemoveCompany = (ids: number[]) => {
     dispatch(companiesStoreActions.removeCompanies(ids));
   };
-  console.log(currentCompany);
 
   if (type === "delete") {
     return (
