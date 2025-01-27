@@ -12,7 +12,6 @@ interface Props {
 }
 
 export function NameInput({ value, onChange }: Props) {
-  console.log(value);
   return (
     <input
       onChange={(e) => onChange((prev) => ({ ...prev, name: e.target.value }))}

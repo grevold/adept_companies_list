@@ -37,11 +37,24 @@ export function SaveModal({ closeModal, currentCompany, type }: Props) {
       : { id: 0, name: "", address: "" }
   );
 
+  const [isValid, setIsValid] = useState(false);
+
   useEffect(() => {
     if (currentCompany) {
       setCompanyData(currentCompany);
     }
+    if (currentCompany === null) {
+      setCompanyData({ id: 0, name: "", address: "" });
+    }
   }, [currentCompany]);
+
+  useEffect(() => {
+    if (companyData.name.length > 2 && companyData.address.length > 8) {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
+  }, [companyData.name, companyData.address]);
 
   return (
     <div className={s.root}>
@@ -58,6 +71,10 @@ export function SaveModal({ closeModal, currentCompany, type }: Props) {
           <span className={s.title}>
             {currentCompany ? "Редактирование компании" : "Создание компании"}
           </span>
+          <div className={s.options_container}>
+            <span className={s.option}>Название - минимум 3 символа</span>
+            <span className={s.option}>Адрес - минимум 7 символов</span>
+          </div>
           <div className={s.inputs_container}>
             <NameInput onChange={setCompanyData} value={companyData.name} />
             <AddressInput
@@ -67,9 +84,11 @@ export function SaveModal({ closeModal, currentCompany, type }: Props) {
           </div>
           <div className={s.buttons_container}>
             <button
-              className={s.button_save}
+              disabled={!isValid}
+              className={!isValid ? s.button_save_disabled : s.button_save}
               onClick={() => {
                 saveCompany(companyData);
+                setCompanyData({ id: 0, name: "", address: "" });
                 closeModal((prev) => ({ ...prev, isOpened: false }));
               }}
             >
