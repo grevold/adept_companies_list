@@ -24,8 +24,6 @@ export function DeleteModal({
   multipleChoice,
   setMultipleChoice,
 }: Props) {
-  console.log(currentCompany);
-  console.log(multipleChoice);
   if (currentCompany) {
     return (
       <div className={s.root}>
