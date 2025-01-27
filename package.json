@@ -1,6 +1,6 @@
 {
   "name": "template-frontend",
-  "homepage": "https://github.com/grevold/adept_companies_list.git",
+  "homepage": "https://grevold.github.io/adept_companies_list/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
