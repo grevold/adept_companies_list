@@ -1,4 +1,3 @@
-import { Modal } from "../Modal/Modal";
 import { NavHeader } from "../NavHeader/NavHeader";
 
 import s from "./Layout.module.css";

@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { EditIcon } from "../../../../icons/EditIcon";
 import { RemoveIcon } from "../../../../icons/RemoveIcon";
 import { Company } from "../../../../types";
@@ -6,25 +5,33 @@ import { Checkbox } from "../../../Checkbox/Checkbox";
 
 import s from "./RowTable.module.css";
 import { companiesStoreActions } from "../../../../store/companiesReducer";
+import { useAppDispatch } from "../../../../store/store";
 
 interface Props {
   companyData: Company;
-  keyId: number;
   handleRemove: (ids: number[]) => void;
-  handleEdit: (newCompany: Company) => {
-    payload: Omit<Company, "id">;
-    type: "companies/saveCompany";
+  handleEdit: (currentCompany: Company) => {
+    payload: Company;
+    type: "companies/editCompany";
   };
+  openModal: React.Dispatch<
+    React.SetStateAction<{
+      isOpened: boolean;
+      type: string;
+      currentCompany: Company | null;
+    }>
+  >;
 }
 
 export const RowTable = ({
   companyData,
   handleRemove,
   handleEdit,
-  keyId,
+  openModal,
 }: Props) => {
+  const dispatch = useAppDispatch();
   return (
-    <tr key={keyId} className={s.row_root}>
+    <tr className={s.row_root}>
       <th className={s.checkbox}>
         <Checkbox />
       </th>
@@ -32,13 +39,25 @@ export const RowTable = ({
       <th className={s.buttons}>
         <button
           className={s.button_remove}
-          onClick={() => handleRemove([companyData.id])}
+          onClick={() => {
+            openModal((prev) => ({
+              currentCompany: companyData,
+              type: "delete",
+              isOpened: true,
+            }));
+          }}
         >
           <RemoveIcon />
         </button>
         <button
           className={s.button_remove}
-          onClick={() => handleEdit(companyData)}
+          onClick={() => {
+            openModal((prev) => ({
+              currentCompany: companyData,
+              type: "edit",
+              isOpened: true,
+            }));
+          }}
         >
           <EditIcon />
         </button>

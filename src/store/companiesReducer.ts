@@ -10,7 +10,7 @@ const slice = createSlice({
   name: "companies",
   initialState,
   reducers: {
-    saveCompany(store, action: PayloadAction<Omit<Company, "id">>) {
+    addCompany(store, action: PayloadAction<Omit<Company, "id">>) {
       const newCompany = action.payload;
       let idOfNewCompany = 0;
       Object.keys(store.companies).forEach((id) => {
@@ -20,6 +20,11 @@ const slice = createSlice({
         ...newCompany,
         id: idOfNewCompany,
       };
+      return store;
+    },
+    editCompany(store, action: PayloadAction<Company>) {
+      const currentCompany = action.payload;
+      store.companies[`${currentCompany.id}`] = currentCompany;
       return store;
     },
     removeCompanies(store, action: PayloadAction<number[]>) {

@@ -1,0 +1,80 @@
+.root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  min-height: 300px;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px 20px 10px 20px;
+}
+.button_close_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.button_close {
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+
+.modal_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: 20px;
+}
+
+.title {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  text-align: start;
+  margin-top: 20px;
+}
+.inputs_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.buttons_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button_save {
+  padding: 10px;
+  border: 1px solid rgb(73, 103, 255);
+  color: rgb(73, 103, 255);
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.button_cancell {
+  padding: 10px;
+  background-color: rgb(164, 164, 164);
+  color: white;
+  border-radius: 5px;
+  font-size: 20px;
+}
