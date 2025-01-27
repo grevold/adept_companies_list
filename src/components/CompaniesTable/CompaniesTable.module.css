@@ -37,3 +37,33 @@
 .button_add_company {
   width: 30px;
 }
+
+.multiple_choice {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.multiple_choice_count {
+  width: 100%;
+  max-width: 200px;
+}
+
+.multiple_choice_buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+}
+
+.multiple_choice_delete_button {
+  font-size: 14px;
+  color: red;
+}
+.multiple_choice_cancell_button {
+  font-size: 14px;
+  color: rgb(0, 51, 255);
+}

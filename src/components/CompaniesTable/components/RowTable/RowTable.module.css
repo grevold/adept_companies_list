@@ -8,6 +8,11 @@
   padding: 20px;
 }
 
+.row_root_selected {
+  composes: row_root;
+  background-color: rgb(196, 196, 196);
+}
+
 .checkbox {
   height: 100%;
   width: 5%;

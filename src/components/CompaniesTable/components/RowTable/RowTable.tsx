@@ -4,8 +4,6 @@ import { Company } from "../../../../types";
 import { Checkbox } from "../../../Checkbox/Checkbox";
 
 import s from "./RowTable.module.css";
-import { companiesStoreActions } from "../../../../store/companiesReducer";
-import { useAppDispatch } from "../../../../store/store";
 
 interface Props {
   companyData: Company;
@@ -19,21 +17,27 @@ interface Props {
       isOpened: boolean;
       type: string;
       currentCompany: Company | null;
+      multipleChoice: number[];
     }>
   >;
+  selectRows: React.Dispatch<React.SetStateAction<number[]>>;
+  isSelectRow: boolean;
 }
 
 export const RowTable = ({
   companyData,
-  handleRemove,
-  handleEdit,
   openModal,
+  selectRows,
+  isSelectRow,
 }: Props) => {
-  const dispatch = useAppDispatch();
   return (
-    <tr className={s.row_root}>
+    <tr className={isSelectRow ? s.row_root_selected : s.row_root}>
       <th className={s.checkbox}>
-        <Checkbox />
+        <Checkbox
+          companyId={companyData.id}
+          isSelect={isSelectRow}
+          onClick={selectRows}
+        />
       </th>
 
       <th className={s.buttons}>
@@ -41,6 +45,7 @@ export const RowTable = ({
           className={s.button_remove}
           onClick={() => {
             openModal((prev) => ({
+              ...prev,
               currentCompany: companyData,
               type: "delete",
               isOpened: true,
@@ -53,6 +58,7 @@ export const RowTable = ({
           className={s.button_remove}
           onClick={() => {
             openModal((prev) => ({
+              ...prev,
               currentCompany: companyData,
               type: "edit",
               isOpened: true,

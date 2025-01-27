@@ -12,10 +12,13 @@ interface Props {
       isOpened: boolean;
       type: string;
       currentCompany: Company | null;
+      multipleChoice: number[];
     }>
   >;
   type: string;
   currentCompany: Company | null;
+  multipleChoice: number[];
+  setMultipleChoice: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
 export function Modal({
@@ -23,6 +26,8 @@ export function Modal({
   setIsOpenedModal,
   type,
   currentCompany,
+  multipleChoice,
+  setMultipleChoice,
 }: Props) {
   const dispatch = useAppDispatch();
   const handleRemoveCompany = (ids: number[]) => {
@@ -37,12 +42,18 @@ export function Modal({
             closeModal={setIsOpenedModal}
             removeCompany={handleRemoveCompany}
             currentCompany={currentCompany}
+            multipleChoice={multipleChoice}
+            setMultipleChoice={setMultipleChoice}
           />
         </div>
         <div
           className={s.bg}
           onClick={() =>
-            setIsOpenedModal((prev) => ({ ...prev, isOpened: false }))
+            setIsOpenedModal((prev) => ({
+              ...prev,
+              isOpened: false,
+              currentCompany: null,
+            }))
           }
         />
       </div>
@@ -62,7 +73,11 @@ export function Modal({
         <div
           className={s.bg}
           onClick={() =>
-            setIsOpenedModal((prev) => ({ ...prev, isOpened: false }))
+            setIsOpenedModal((prev) => ({
+              ...prev,
+              isOpened: false,
+              currentCompany: null,
+            }))
           }
         />
       </div>
