@@ -13,6 +13,7 @@ interface Props {
       isOpened: boolean;
       type: string;
       currentCompany: Company | null;
+      multipleChoice: number[];
     }>
   >;
   currentCompany: Company | null;
