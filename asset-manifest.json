@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/adept_companies_list/static/css/main.d5b9d40e.css",
-    "main.js": "/adept_companies_list/static/js/main.d1b7501f.js",
+    "main.js": "/adept_companies_list/static/js/main.6aacc916.js",
     "static/media/Montserrat-Regular.eot": "/adept_companies_list/static/media/Montserrat-Regular.3220cdd4dbb981ac0882.eot",
     "static/media/Montserrat-Bold.eot": "/adept_companies_list/static/media/Montserrat-Bold.4b33f3d37c06db49a761.eot",
     "static/media/Montserrat-SemiBold.eot": "/adept_companies_list/static/media/Montserrat-SemiBold.262fb106797e141d7adf.eot",
@@ -20,10 +20,10 @@
     "static/media/Montserrat-SemiBold.woff2": "/adept_companies_list/static/media/Montserrat-SemiBold.1d679c8257a6a9caa9bd.woff2",
     "index.html": "/adept_companies_list/index.html",
     "main.d5b9d40e.css.map": "/adept_companies_list/static/css/main.d5b9d40e.css.map",
-    "main.d1b7501f.js.map": "/adept_companies_list/static/js/main.d1b7501f.js.map"
+    "main.6aacc916.js.map": "/adept_companies_list/static/js/main.6aacc916.js.map"
   },
   "entrypoints": [
     "static/css/main.d5b9d40e.css",
-    "static/js/main.d1b7501f.js"
+    "static/js/main.6aacc916.js"
   ]
 }
