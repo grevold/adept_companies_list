@@ -6,8 +6,7 @@ import { AddIcon } from "../../icons/AddIcon";
 import { useAppDispatch } from "../../store/store";
 import { companiesStoreActions } from "../../store/companiesReducer";
 import { Modal } from "../Modal/Modal";
-import { useEffect, useState } from "react";
-import { CloseIcon } from "../../icons/CloseIcon";
+import { useState } from "react";
 
 interface Props {
   companies: CompaniesList;
@@ -95,16 +94,18 @@ export function CompaniesTable({ companies }: Props) {
       <table className={s.root}>
         <TableHead companies={companies} setMultipleChoice={setSelectedRows} />
         <tbody className={s.list}>
-          {Object.values(companies).map((companyData) => (
-            <RowTable
-              companyData={companyData}
-              handleRemove={handleRemoveCompany}
-              handleEdit={handleEditCompany}
-              openModal={setIsOpenedModal}
-              selectRows={setSelectedRows}
-              isSelectRow={selectedRows.includes(companyData.id)}
-            />
-          ))}
+          {Object.values(companies)
+            .sort((a, b) => b.id - a.id)
+            .map((companyData) => (
+              <RowTable
+                companyData={companyData}
+                handleRemove={handleRemoveCompany}
+                handleEdit={handleEditCompany}
+                openModal={setIsOpenedModal}
+                selectRows={setSelectedRows}
+                isSelectRow={selectedRows.includes(companyData.id)}
+              />
+            ))}
         </tbody>
       </table>
     </>
